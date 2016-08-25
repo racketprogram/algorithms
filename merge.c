@@ -1,5 +1,5 @@
 #include <stdio.h>
-int a[8] = {8,7,6,5,4,3,2,1};
+int a[8] = {8,7,5,5,6,6,2,1};
 
 void merge(int a[],int l,int m,int r)
 {
