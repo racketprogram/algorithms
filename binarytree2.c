@@ -76,7 +76,7 @@ void change(Node** node, Node** findnode)
 		*node = (*findnode)->left;
 		(*node)->left = *nodeleft;
 		(*node)->right = *noderight;
-		(*node)->left = *findnoderight;
+		(*node)->right->left = *findnoderight;
 	} else {
 		change(node, &((*node)->left));
 	}
@@ -128,10 +128,14 @@ int main(void)
 	addnode(&node, 11);	
 	printtree(node);
 	printf("\n");
+
 	delete(&node, 4);
 	printtree(node);
 	printf("\n");
 	delete(&node, 11);
+	printtree(node);
+	printf("\n");
+	delete(&node, 9);
 	printtree(node);
 	printf("\n");
 
