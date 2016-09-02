@@ -1,5 +1,5 @@
 #include <stdio.h>
-int a[8] = {8,7,5,5,6,6,2,1};
+#include <stdlib.h>
 
 void merge(int a[],int l,int m,int r)
 {
@@ -47,12 +47,28 @@ void divide(int a[],int l,int r)
 
 int main(void)
 {
-	int i;
-	divide(a, 0, 7);
-	for (i = 0; i <= 7; i++) {
-		printf("%d ", a[i]);
+	int random_num, count;
+	int i = 10000;
+	int nums[10000];
+	/*
+	for(count = 0; count < 100; count++) {
+		nums[count] = rand()/300;
 	}
-	printf("\n");
+	*/
+	for(count = 0; count <10000; count++) {
+		nums[count] = i--;
+	}
+	
+	for(count = 0; count < 10000; count++) {
+		printf("%d ", nums[count]);
+	}
+	printf("\n\n\n");
+
+	divide(nums, 0, 9999);
+
+	for(count = 0; count < 10000; count++) {
+		printf("%d ", nums[count]);
+	}
 	
 	return 0;
 }

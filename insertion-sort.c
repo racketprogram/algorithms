@@ -17,18 +17,25 @@ void sort(int a[], int length)
 int main(void)
 {
 	int random_num, count;
-	int nums[100];
+	int i = 10000;
+	int nums[10000];
+	/*
 	for(count = 0; count < 100; count++) {
 		nums[count] = rand()/300;
 	}
-	for(count = 0; count < 100; count++) {
+	*/
+	for(count = 0; count <10000; count++) {
+		nums[count] = i--;
+	}
+	
+	for(count = 0; count < 10000; count++) {
 		printf("%d ", nums[count]);
 	}
 	printf("\n\n\n");
 
-	sort(nums, 99);
+	sort(nums, 9999);
 
-	for(count = 0; count < 100; count++) {
+	for(count = 0; count < 10000; count++) {
 		printf("%d ", nums[count]);
 	}
 	return 0;
