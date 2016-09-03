@@ -46,10 +46,11 @@ int main(void)
 	for(count = 0; count <10000; count++) {
 		nums1[count] = i--;
 	}
-	
+
 	i = 10000;
 	for(count = 0; count <10000; count++) {
-		nums2[count] = i--;
+		nums2[count] = i;
+		i = i / 2;
 	}
 	
 	printf("\n\n\n");
