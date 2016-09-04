@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-void merge(int a[],int l,int m,int r)
+int inversion_count = 0;
+
+void merge(int a[], int l, int m, int r)
 {
 	int n1 = m - l + 1;
 	int n2 = r - m;
@@ -27,6 +29,7 @@ void merge(int a[],int l,int m,int r)
 		if (left[i] > right[j]) {
 			a[k] = right[j];
 			j++;
+			inversion_count++;
 		} else {
 			a[k] = left[i];
 			i++;
@@ -34,7 +37,7 @@ void merge(int a[],int l,int m,int r)
 	}
 }
 
-void divide(int a[],int l,int r)
+void divide(int a[], int l, int r)
 {
 	int m;
 	if (l < r) {
@@ -51,26 +54,17 @@ int main(void)
 	int random_num, count;
 	int i = 10000;
 	int nums[10000];
-	srand(time(NULL));
-	for(count = 0; count < 10000; count++) {
-		nums[count] = rand();
-	}
-	/*
-	for(count = 0; count <10000; count++) {
+
+	for(count = 0; count <10; count++) {
 		nums[count] = i--;
 	}
-	*/
-
-	for(count = 0; count < 10000; count++) {
+	for(count = 0; count < 10; count++) {
 		printf("%d ", nums[count]);
 	}
-	printf("\n\n\n");
+	printf("\n");
 
-	divide(nums, 0, 9999);
-
-	for(count = 0; count < 10000; count++) {
-		printf("%d ", nums[count]);
-	}
-
+	divide(nums, 0, 9);
+	printf("%d\n", inversion_count);
+	
 	return 0;
 }
