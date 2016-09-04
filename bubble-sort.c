@@ -28,7 +28,7 @@ int main(void)
 	for(count = 0; count <10000; count++) {
 		nums[count] = i--;
 	}
-	
+
 	for(count = 0; count < 10000; count++) {
 		printf("%d ", nums[count]);
 	}
@@ -40,4 +40,4 @@ int main(void)
 		printf("%d ", nums[count]);
 	}
 	return 0;
-}	
+}

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 void merge(int a[],int l,int m,int r)
 {
@@ -50,15 +51,16 @@ int main(void)
 	int random_num, count;
 	int i = 10000;
 	int nums[10000];
-	/*
-	for(count = 0; count < 100; count++) {
-		nums[count] = rand()/300;
+	srand(time(NULL));
+	for(count = 0; count < 10000; count++) {
+		nums[count] = rand();
 	}
-	*/
+	/*
 	for(count = 0; count <10000; count++) {
 		nums[count] = i--;
 	}
-	
+	*/
+
 	for(count = 0; count < 10000; count++) {
 		printf("%d ", nums[count]);
 	}
@@ -69,7 +71,7 @@ int main(void)
 	for(count = 0; count < 10000; count++) {
 		printf("%d ", nums[count]);
 	}
-	
+
 	return 0;
 }
 

@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 void sort(int a[], int length)
 {
 	int key = 0, i = 0, j = 0;
-	
+
 	for (i = 1; i <= length; i++) {
 		key = a[i];
 		for (j = i - 1; j >=  0 && a[j] > key; j--) {
@@ -19,15 +20,16 @@ int main(void)
 	int random_num, count;
 	int i = 10000;
 	int nums[10000];
-	/*
-	for(count = 0; count < 100; count++) {
-		nums[count] = rand()/300;
+	srand(time(NULL));
+	for(count = 0; count < 10000; count++) {
+		nums[count] = rand();
 	}
-	*/
+	/*
 	for(count = 0; count <10000; count++) {
 		nums[count] = i--;
 	}
-	
+	*/
+
 	for(count = 0; count < 10000; count++) {
 		printf("%d ", nums[count]);
 	}
@@ -39,4 +41,4 @@ int main(void)
 		printf("%d ", nums[count]);
 	}
 	return 0;
-}	
+}
