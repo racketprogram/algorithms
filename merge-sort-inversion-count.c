@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 int inversion_count = 0;
 
@@ -29,7 +28,7 @@ void merge(int a[], int l, int m, int r)
 		if (left[i] > right[j]) {
 			a[k] = right[j];
 			j++;
-			inversion_count++;
+			inversion_count = inversion_count + (n1 - i);
 		} else {
 			a[k] = left[i];
 			i++;
@@ -52,7 +51,7 @@ void divide(int a[], int l, int r)
 int main(void)
 {
 	int random_num, count;
-	int i = 10000;
+	int i = 10;
 	int nums[10000];
 
 	for(count = 0; count <10; count++) {
