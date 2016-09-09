@@ -1,5 +1,6 @@
 #include <stdio.h>
-int a[20] = {-20,-19,-18,-17,16,15,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,14,13,-12,11};
+#include <stdlib.h>
+#include <time.h>
 
 int final_left = 0;
 int final_right = 0;
@@ -17,8 +18,8 @@ void max(int l, int r, int s)
 void findMaxCrossSub(int a[], int low, int mid, int high)
 {
 	int sum;
-	int left_sum = -1000;
-	int right_sum = -1000;
+	int left_sum = -1000000;
+	int right_sum = -1000000;
 	int i;
 	int j;
 	int max_left;
@@ -62,7 +63,20 @@ void findMaxSub(int a[], int low, int high)
 
 int main(void)
 {
-	findMaxSub(a, 0, 19);
+
+	int random_num, count;
+	int i = 10000;
+	int nums[10000];
+	srand(time(NULL));
+	for(count = 0; count < 10000; count++) {
+		nums[count] = rand() % 19 + (-9);
+	}
+	for(count = 0; count < 10000; count++) {
+		printf("%d", nums[count]);
+	}
+	printf("\n");
+	
+	findMaxSub(nums, 0, 9999);
 
 	printf("%d %d %d\n", final_left, final_right, final_sum);
 	
