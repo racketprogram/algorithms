@@ -65,18 +65,18 @@ int main(void)
 {
 
 	int random_num, count;
-	int i = 10000;
-	int nums[10000];
+	int i = 100;
+	int nums[100];
 	srand(time(NULL));
-	for(count = 0; count < 10000; count++) {
+	for(count = 0; count < 100; count++) {
 		nums[count] = rand() % 19 + (-9);
 	}
-	for(count = 0; count < 10000; count++) {
-		printf("%d", nums[count]);
+	for(count = 0; count < 100; count++) {
+		printf("%d ", nums[count]);
 	}
 	printf("\n");
 	
-	findMaxSub(nums, 0, 9999);
+	findMaxSub(nums, 0, 99);
 
 	printf("%d %d %d\n", final_left, final_right, final_sum);
 	
