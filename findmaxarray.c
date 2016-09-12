@@ -6,12 +6,12 @@ int final_left = 0;
 int final_right = 0;
 int final_sum = 0;
 
-void max(int l, int r, int s)
+void max(int left, int right, int sum)
 {
-	if (s > final_sum) {
-		final_sum = s;
-		final_left = l;
-		final_right = r;
+	if (sum > final_sum) {
+		final_sum = sum;
+		final_left = left;
+		final_right = right;
 	}
 }
 
