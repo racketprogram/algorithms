@@ -6,10 +6,10 @@ typedef struct {
     unsigned left;
     unsigned right;
     int sum;
-} max_subarray;
+} subarray;
 
-max_subarray find_maximum_subarray(int A[], unsigned low, unsigned high) {
-    max_subarray suffixes[high - low];
+subarray find_maximum_subarray(int A[], unsigned low, unsigned high) {
+    subarray suffixes[high - low];
 
     suffixes[0].left = low;
     suffixes[0].right = low + 1;
@@ -19,16 +19,16 @@ max_subarray find_maximum_subarray(int A[], unsigned low, unsigned high) {
         if (suffixes[i - 1].sum < 0) {
             suffixes[i].left = i;
             suffixes[i].right = i + 1;
-            suffixes[i].sum = A[i];
+            suffixes[i].sum = A[i]; 
         } else {
-            max_subarray *previous = &suffixes[i - 1];
+            subarray *previous = &suffixes[i - 1];
             suffixes[i].left = previous->left;
             suffixes[i].right = i + 1;
             suffixes[i].sum = previous->sum + A[i];
         }
     }
 
-    max_subarray *max = &suffixes[0];
+    subarray *max = &suffixes[0];
 
     for (int i = low + 1; i < high; i++) {
         if (max->sum < suffixes[i].sum) {
@@ -43,18 +43,18 @@ int main(void)
 {
 
 	int random_num, count;
-	int i = 100;
-	int nums[100];
+	int i = 10000;
+	int nums[10000];
 	srand(time(NULL));
-	for(count = 0; count < 100; count++) {
+	for(count = 0; count < 10000; count++) {
 		nums[count] = rand() % 19 + (-9);
 	}
-	for(count = 0; count < 100; count++) {
+	for(count = 0; count < 10000; count++) {
 		printf("%d ", nums[count]);
 	}
 	printf("\n");
 	
-	max_subarray test = find_maximum_subarray(nums, 0, 99);
+	subarray test = find_maximum_subarray(nums, 0, 9999);
 
 	printf("%d %d %d\n", test.left, test.right, test.sum);
 	
