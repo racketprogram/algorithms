@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int max(int x, int y)
 {
@@ -26,8 +28,15 @@ int cutRod(int p[], int n)
 
 int main(void)
 {
-
-	int nums[10] = { 1,1,1,1,10,1,1,39,1,39 };
+	int i;
+	int nums[10] = { 1,2,1,1,1,1,1,1,1,1 };
+	/*
+	int nums[10];
+	srand(time(NULL));
+	for(i = 0; i < 10; i++) {
+		nums[i] = rand() / 10000;
+	}
+	*/
 	for(int count = 0; count < 10; count++) {
 		printf("%d ", nums[count]);
 	}
