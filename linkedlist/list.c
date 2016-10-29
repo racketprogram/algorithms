@@ -30,7 +30,6 @@ int main(void)
 
 	List* list2 = addlist(list1, 99);
 	
-
 	printf("%d\n", list2->next->value);
 	
 	return 0;

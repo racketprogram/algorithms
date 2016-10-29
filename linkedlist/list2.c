@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct list {
+typedef struct linked_list {
 	int value;
-	struct list* next;
+	struct linked_list* next;
 } List;
 
 void addlist(List** list, int value)
