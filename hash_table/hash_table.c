@@ -7,6 +7,8 @@ typedef struct linked_list {
 	struct linked_list* next;
 } List;
 
+List* table[256] = {0};
+
 List* list_new(char* key, int value)
 {
 	List* list = malloc(sizeof(List));
@@ -49,22 +51,37 @@ int list_find(char* key, List* list)
   }
 }
 
-void list_print(List* list) 
+void hash_table_add(char* key, int value)
 {
-	for (List* i = list; i != NULL; i = i->next) {
-		printf("%s %d ", i->key, i->value);
-	}
-  printf("\n");
+  int key_number = 0;
+  for (int i = 0; *(key + i) != '\0'; i++) {
+    key_number += *(key + i); 
+  }
+  int hash = key_number % 256;
+  if (table[hash] != 0) {
+      table[hash] = list_new(key, value);
+  } else {
+    list_cons(key, value, &(table[hash]));
+  }
+}
+
+int hash_find(char* key) 
+{
+  int key_number = 0;
+  for (int i = 0; *(key + i) != '\0'; i++) {
+    key_number += *(key + i); 
+  }
+  int hash = key_number % 256;
+  return list_find(key, table[hash]);
 }
 
 int main(void) 
 {
-	List* list = list_new("year", 2016);
-	list_cons("month", 10, &list);	
-	list_cons("day", 31, &list);
-  list_print(list);
-  list_remove("month", &list);
-  list_print(list);
-  printf("what the year is ? %d \n", list_find("year", list));
+  hash_table_add("test", 123);
+  hash_table_add("yo", 66);
+  hash_table_add("hh", 55);
+  hash_table_add("hello", 999);
+  printf("%d ", hash_find("hh"));
+  printf("%d ", hash_find("test"));
 	return 0;
 }
