@@ -42,7 +42,9 @@ void list_remove(char* key, List** list)
 
 int list_find(char* key, List* list)
 {
-	if (*(list->key) == *key) {
+  if (list == NULL) {
+    return 0;
+  } else if (*(list->key) == *key) {
     return list->value;
   } else if (list->next == NULL) {
     return 0;
@@ -77,11 +79,9 @@ int hash_find(char* key)
 
 int main(void) 
 {
-  hash_table_add("test", 123);
-  hash_table_add("yo", 66);
-  hash_table_add("hh", 55);
-  hash_table_add("hello", 999);
-  printf("%d ", hash_find("hh"));
-  printf("%d ", hash_find("test"));
+  hash_table_add("rain", 34);
+  hash_table_add("whh", 530);
+  printf("%d ", hash_find("rain"));
+  printf("%d ", hash_find("whh"));
 	return 0;
 }

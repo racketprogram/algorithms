@@ -40,7 +40,9 @@ void list_remove(char* key, List** list)
 
 int list_find(char* key, List* list)
 {
-	if (*(list->key) == *key) {
+  if (list == NULL) {
+    return 0;
+  } else if (*(list->key) == *key) {
     return list->value;
   } else if (list->next == NULL) {
     return 0;
